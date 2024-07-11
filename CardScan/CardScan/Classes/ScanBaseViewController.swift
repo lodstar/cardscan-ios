@@ -83,7 +83,11 @@ public protocol TestingImageDataSource: AnyObject {
             print("Not a valid torch level")
         }
     }
-    
+
+    public func torchDevice() -> AVCaptureDevice? {
+        videoFeed.torch?.device
+    }
+
     @objc static public func configure(apiKey: String? = nil) {
         if let apiKey = apiKey {
             ApiClient.apiKey = apiKey
